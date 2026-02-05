@@ -9,15 +9,24 @@ client = Groq(
     api_key=os.environ.get("GROQ_API_KEY"),
 )
 
+messageContextArr = []
+
 if(len(sys.argv)) < 2:
     print("Please enter a prompt")
     sys.exit(1)
 else :
     UserPrompt =  str(sys.argv[1])
 
+messageContextArr.append(
+    {
+    "role" : "user",
+    "content" : UserPrompt
+    }
+)
 
 chat_completion = client.chat.completions.create(
-    messages=[
+    # messages should be assigend to messageContextArr later to store context.
+    messages=[ 
         {
             "role": "system",
             "content": "You are a helpful assistant."
@@ -31,3 +40,4 @@ chat_completion = client.chat.completions.create(
 )
 
 print(chat_completion.choices[0].message.content)
+print(messageContextArr)
