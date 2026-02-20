@@ -1,6 +1,6 @@
 import os
 import sys
-import functions.get_files_info as get_files_info
+from functions.get_files_info import get_files_info
 
 from groq import Groq
 from dotenv import load_dotenv
