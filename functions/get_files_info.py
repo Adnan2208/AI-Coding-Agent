@@ -1,6 +1,6 @@
 import os
 
-def get_files_info(working_dir,current_dir):
+def get_files_info(working_dir,current_dir = "."):
 
     abs_working_dir = os.path.abspath(working_dir)
     abs_current_dir = os.path.abspath(os.path.join(abs_working_dir ,current_dir))
