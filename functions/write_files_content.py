@@ -31,5 +31,3 @@ def write_files_content(working_dir,file_path,content):
             print(f"Error: The file '{file_path}' was not found.")
         except Exception as e:
             print(f"An error occurred: {e}")
-
-write_files_content("calculator","calculator/package/dne.txt","Hello World")
