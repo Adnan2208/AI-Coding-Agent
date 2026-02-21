@@ -10,7 +10,7 @@ def get_files_content(working_dir,file_path):
     if not(os.path.commonpath([abs_working_dir,abs_file_path]) == abs_working_dir):
         return f'"{abs_file_path}" is not a part of the working dir: "{abs_working_dir}"'
     
-    # Check if both the dir's exist
+    # Check if dir and file exists
     if not os.path.exists(abs_working_dir):
         return f'Error: "{working_dir}" does not exist'
 
