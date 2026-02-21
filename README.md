@@ -100,4 +100,4 @@ The file helper functions are designed to restrict access to the configured work
 
 ## License
 
-Add a license file (e.g., MIT) if you plan to distribute this project publicly.
+NONE
