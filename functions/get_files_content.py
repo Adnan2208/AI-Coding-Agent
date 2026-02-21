@@ -4,6 +4,7 @@ def get_files_content(working_dir,file_path):
     
     abs_working_dir = os.path.abspath(working_dir)
     abs_file_path = os.path.join(abs_working_dir,file_path)
+    MAX_CHARS = 10000
 
     print(abs_working_dir)
     print(abs_file_path)
@@ -20,8 +21,12 @@ def get_files_content(working_dir,file_path):
 
     try:
         with open(abs_file_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-            print(content)
+            content = file.read(MAX_CHARS)
+            if(len(content) >= MAX_CHARS):
+                content += {
+                    f'"{file}" has been truncated as the max limit of 10000 chars is increased'
+                }
+        
     except FileNotFoundError:
         print(f"Error: The file '{file_path}' was not found.")
     except Exception as e:
