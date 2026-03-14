@@ -3,8 +3,7 @@ import os
 def write_files_content(working_dir,file_path,content):
     
     abs_working_dir = os.path.abspath(working_dir)
-    abs_file_path = os.path.join(abs_working_dir,file_path)
-
+    abs_file_path = os.path.abspath(os.path.join(abs_working_dir,file_path))
 
     if not(os.path.commonpath([abs_working_dir,abs_file_path]) == abs_working_dir):
         return f'"{abs_file_path}" is not a part of the working dir: "{abs_working_dir}"'
@@ -16,7 +15,7 @@ def write_files_content(working_dir,file_path,content):
 
     if not os.path.exists(abs_file_path): # If the file does not exist: 
         parent_dir = os.path.dirname(abs_file_path)
-        if not os.path.exists(parent_dir): # If the parent dir does not exist: 
+        if not os.path.exists(parent_dir): # If the parent dir also does not exist: 
             os.makedirs(parent_dir,exist_ok=True)
 
         with open(abs_file_path,'x',encoding='utf-8') as f:
