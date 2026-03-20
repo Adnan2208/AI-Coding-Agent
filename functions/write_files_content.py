@@ -20,6 +20,7 @@ def write_files_content(working_dir,file_path,content):
 
         with open(abs_file_path,'x',encoding='utf-8') as f:
             f.write(content)
+            return f'Successfully wrote to file "{file}"'
     else: # The file exists so we only write directly to the file
         try:
             with open(abs_file_path, 'w' , encoding='utf-8') as file:
