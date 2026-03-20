@@ -28,20 +28,21 @@ messageContextArr.append(
     }
 )
 
+SystemPrompt = "You are a helpful coding assistant who only knows how to code in python"
+
 chat_completion = client.chat.completions.create(
     # messages should be assigend to messageContextArr later to store context.
     messages=[ 
         {
             "role": "system",
-            "content": "You are a helpful assistant."
+            "content": SystemPrompt
         },
         {
             "role": "user",
-            "content": UserPrompt,
+            "content": UserPrompt
         }
     ],
     model="llama-3.1-8b-instant",
 )
 
 print(chat_completion.choices[0].message.content)
-print(messageContextArr)
