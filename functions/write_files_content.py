@@ -13,15 +13,20 @@ def write_files_content(working_dir,file_path,content):
         return f'Error: "{working_dir}" does not exist'
 
 
-    if not os.path.exists(abs_file_path): # If the file does not exist: 
-        parent_dir = os.path.dirname(abs_file_path)
-        if not os.path.exists(parent_dir): # If the parent dir also does not exist: 
+    # If the file does not exist:
+    if not os.path.exists(abs_file_path): 
+        parent_dir = os.path.dirname(abs_file_path) # Will return the names of all the directories from the working dir to the parent dir.
+
+        # If the parent dir also does not exist:
+        if not os.path.exists(parent_dir): 
             os.makedirs(parent_dir,exist_ok=True)
 
         with open(abs_file_path,'x',encoding='utf-8') as f:
             f.write(content)
             return f'Successfully wrote to file "{file}"'
-    else: # The file exists so we only write directly to the file
+    
+    # The file exists so we only write directly to the file
+    else:
         try:
             with open(abs_file_path, 'w' , encoding='utf-8') as file:
                 file.write(content)
