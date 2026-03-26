@@ -4,7 +4,7 @@ import json
 
 from groq import Groq
 from dotenv import load_dotenv
-from availableFunctions import availableFunctions
+from functions.run_functions import run_tool_calls
 
 load_dotenv()
 client = Groq(
@@ -32,7 +32,6 @@ messageContextArr.append(
     }
 )
 
-function_names = list(availableFunctions.keys())
 
 SystemPrompt = """You are a coding assistant that helps users create, edit, and run code files on their local machine.
 
@@ -69,8 +68,5 @@ chat_completion = client.chat.completions.create(
 message = chat_completion.choices[0].message
 
 if message.tool_calls:
-    for tool_call in message.tool_calls:
-        name = tool_call.function.name
-        arguments = json.loads(tool_call.function.arguments)
-        print(f"Calling: {name} with {arguments}")
-        # actually invoke it:
+    results = run_tool_calls(message.tool_calls)
+    # `run_tool_calls` already prints per-tool results; `results` contains the return values
