@@ -30,7 +30,7 @@ def write_files_content(working_dir,file_path,content):
         try:
             with open(abs_file_path, 'w' , encoding='utf-8') as file:
                 file.write(content)
-                return f'Successfully wrote to file "{file}"'
+                return f'Successfully wrote to file "{file}"' # Error here file is not accessible during return.
     
         except FileNotFoundError:
             print(f"Error: The file '{file_path}' was not found.")
