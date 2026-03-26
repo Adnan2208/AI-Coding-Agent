@@ -23,14 +23,14 @@ def write_files_content(working_dir,file_path,content):
 
         with open(abs_file_path,'x',encoding='utf-8') as f:
             f.write(content)
-            return f'Successfully wrote to file "{file}"'
+            return f'Successfully wrote to file "{f}"'
     
     # The file exists so we only write directly to the file
     else:
         try:
             with open(abs_file_path, 'w' , encoding='utf-8') as file:
                 file.write(content)
-                return f'Successfully wrote to file "{file}"' # Error here file is not accessible during return.
+                return f'Successfully wrote to file "{file}"'
     
         except FileNotFoundError:
             print(f"Error: The file '{file_path}' was not found.")
