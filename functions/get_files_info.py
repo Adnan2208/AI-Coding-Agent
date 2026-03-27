@@ -24,6 +24,7 @@ def get_files_info(working_dir,current_dir = "."):
         abs_content = os.path.join(abs_current_dir , content)
         content_size = os.path.getsize(abs_content)
         is_dir = os.path.isdir(abs_content)
+        # Recursion can be used here to check if is dir == true call get_files_info for content
 
         files_info += f'-"{content}": file_size="{content_size}" is_dir="{is_dir}" \n'
 

@@ -1,4 +1,7 @@
-from functions.run_files import run_files
+import sys
+sys.path.append("/home/adnan/Adnan/Ai-agent/")
+
+from functions import run_files
 
 def main():
 

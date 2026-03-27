@@ -1,4 +1,7 @@
-from functions.write_files_content import write_files_content
+import sys
+sys.path.append("/home/adnan/Adnan/Ai-agent/")
+
+from functions import write_files_content
 
 def main():
 

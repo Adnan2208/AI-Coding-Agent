@@ -1,4 +1,7 @@
-from functions.get_files_info import get_files_info
+import sys
+sys.path.append("/home/adnan/Adnan/Ai-agent/")
+
+from functions import get_files_info
 
 def main():
 
