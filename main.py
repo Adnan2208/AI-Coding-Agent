@@ -65,7 +65,7 @@ toolCallerChatCompletion = client.chat.completions.create(
     ],
     tools=toolSchema,
     tool_choice="auto",
-    model="moonshotai/kimi-k2-instruct",
+    model="llama-3.1-8b-instant",
 )
 
 tool_calls = toolCallerChatCompletion.choices[0].message.tool_calls
@@ -73,4 +73,8 @@ tool_calls = toolCallerChatCompletion.choices[0].message.tool_calls
 if tool_calls:
     results = run_tool_calls(tool_calls)
     print("Tool Call Results:")
-    print(results)
+    
+    
+    for t in tool_calls : 
+        print(t)
+        print("\n") 
