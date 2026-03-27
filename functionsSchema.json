@@ -24,7 +24,7 @@
     "type": "function",
     "function": {
       "name": "get_files_info",
-      "description": "Return a listing of a directory inside a working directory with file sizes and whether entries are directories.",
+      "description": "Return the information of all the files present inside the working directory",
       "parameters": {
         "type": "object",
         "properties": {
